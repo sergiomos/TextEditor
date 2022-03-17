@@ -45,6 +45,8 @@ git clone https://github.com/sergiomos/TextEditor.git
 
 Executar o arquivo TextEditor.csproj
 
+---
+
 Feito com 💜 por [Sergio Martins](https://github.com/sergiomos) 🚀.
 
 Readme inspirado em [Yuri](https://github.com/Yuri-stack)
