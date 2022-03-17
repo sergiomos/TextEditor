@@ -6,7 +6,7 @@ namespace TextEditor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Menu();
         }
 
         static void Menu()
@@ -19,16 +19,32 @@ namespace TextEditor
 
             short option = short.Parse(Console.ReadLine());
 
+            Console.Write(option);
+
             switch(option) {
                 case 0: System.Environment.Exit(0); break;
                 case 1: OpenFile(); break;
-                case 2: EditFile(); break;
+                case 2: CreateNewFile(); break;
                 default: Menu(); break;
             }
         }
 
         static void OpenFile() {}
 
-        static void EditFile() {}
+        static void CreateNewFile() {
+            Console.Clear();
+            Console.WriteLine("Digite seu texto abaixo (ESC para sair)");
+            Console.WriteLine("------------------------");
+
+            string text = "";
+
+            do {
+                text += Console.ReadLine();
+                text += Environment.NewLine;
+            }
+            while(Console.ReadKey().Key != ConsoleKey.Escape);
+
+            Console.Write(text);
+        }
     }
 }
