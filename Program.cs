@@ -30,7 +30,21 @@ namespace TextEditor
             }
         }
 
-        static void OpenFile() {}
+        static void OpenFile() 
+        {
+            Console.Clear();
+            Console.WriteLine("Qual o caminho do arquivo?");
+            string path = Console.ReadLine();
+
+            using(var file = new StreamReader(path)) {
+                string text = file.ReadToEnd();
+                Console.Write(text);
+            }
+
+            Console.WriteLine("");
+            Console.ReadLine();
+            Menu();
+        }
 
         static void CreateNewFile() 
         {
@@ -40,15 +54,16 @@ namespace TextEditor
 
             string text = "";
 
+
             do {
                 text += Console.ReadLine();
                 text += Environment.NewLine;
             }
             while(Console.ReadKey().Key != ConsoleKey.Escape);
 
-            Console.Write(text);
+            SaveFile(text);
         }
-   
+
         static void SaveFile(string text) 
         {
             Console.Clear();
@@ -61,7 +76,9 @@ namespace TextEditor
                 file.Write(text);
             }
 
-
+            Console.WriteLine($"Arquivo {path} salvo com sucesso");
+            Console.ReadLine();
+            Menu();
         }
     }
 }
