@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace TextEditor
 {
@@ -31,7 +32,8 @@ namespace TextEditor
 
         static void OpenFile() {}
 
-        static void CreateNewFile() {
+        static void CreateNewFile() 
+        {
             Console.Clear();
             Console.WriteLine("Digite seu texto abaixo (ESC para sair)");
             Console.WriteLine("------------------------");
@@ -45,6 +47,21 @@ namespace TextEditor
             while(Console.ReadKey().Key != ConsoleKey.Escape);
 
             Console.Write(text);
+        }
+   
+        static void SaveFile(string text) 
+        {
+            Console.Clear();
+            Console.WriteLine("Qual caminho para salvar o arquivo?");
+
+            string path = Console.ReadLine();
+
+            using (var file = new StreamWriter(path))
+            {
+                file.Write(text);
+            }
+
+
         }
     }
 }
