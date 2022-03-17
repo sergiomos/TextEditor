@@ -44,7 +44,6 @@ git clone https://github.com/sergiomos/TextEditor.git
 ### 2. Rodar a aplicação localmente
 
 Executar o arquivo TextEditor.csproj
-```
 
 Feito com 💜 por [Sergio Martins](https://github.com/sergiomos) 🚀.
 
